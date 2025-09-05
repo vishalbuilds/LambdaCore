@@ -16,5 +16,6 @@ flake8==7.0.0
 bandit==1.7.7        # Python security analyzer
 safety==3.2.0        # Dependency vulnerability scanner
 radon==6.0.1         # Cyclomatic complexity checker
+typer==0.9.0      # For building CLI tools
 
 
