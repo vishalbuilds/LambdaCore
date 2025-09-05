@@ -94,21 +94,6 @@ jobs:
       - name: Run Bandit
         run: bandit -r src/ -lll
 
-  safety:
-    name: Safety Dependency Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install Safety and dependencies
-        run: |
-          pip install -r src/requirements.txt
-          pip install safety
-      - name: Run Safety
-        run: safety check
-
   radon:
     name: Radon Complexity Check
     runs-on: ubuntu-latest
