@@ -1,5 +1,5 @@
 import boto3
-from src.common.logger import Logger
+from common.logger import Logger
 
 class ConnectClient:
     def __init__(self, region_name=None):

@@ -1,6 +1,9 @@
 import re
-import json
 from typing import Any, Dict
+from common.logger import Logger
+
+LOGGER = Logger(__name__)
+
 
 class EventSanitizer:
 
@@ -23,9 +26,13 @@ class EventSanitizer:
 
     MASK_TEXT = "***MASKED***"
 
-    def __init__(self, mask_text: str = None):
+    def __init__(self, event: Dict = None, mask_text: str = None):
         if mask_text:
             self.MASK_TEXT = mask_text
+        if event is not None:
+            self.data = self._sanitize_dict(event)
+        else:
+            self.data = None
 
     def _mask_value(self, value: Any) -> Any:
         if not isinstance(value, str):
@@ -33,7 +40,6 @@ class EventSanitizer:
         return self.MASK_TEXT
 
     def _sanitize_value(self, value: Any) -> Any:
-
         if isinstance(value, str):
             sanitized_value = value
             for _, pattern in self.SENSITIVE_PATTERNS.items():
@@ -55,8 +61,5 @@ class EventSanitizer:
                 ]
             else:
                 sanitized[key] = self._sanitize_value(value)
-        return sanitized
-
-    def __call__(self, event: Dict) -> Dict:
-        sanitized = self._sanitize_dict(event)
+        l
         return sanitized

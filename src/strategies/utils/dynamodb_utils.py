@@ -5,7 +5,7 @@ This class provides high-level, descriptive methods for common and advanced Dyna
 including single and batch CRUD, attribute-based queries, existence checks, and more.
 All methods include logging and error handling for robust production use.
 """
-from client.dynamodb_client import DynamoDBClient
+from common.client.dynamodb_client import DynamoDBClient
 from common.logger import Logger
 import os
 

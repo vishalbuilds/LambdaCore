@@ -7,8 +7,8 @@ It demonstrates OOP, logging, and robust error handling.
 import uuid
 import time
 import os
-from src.strategies.utils.s3_utils import S3Utils
-from src.strategies.utils.transcribe_utils import TranscribeUtils
+from strategies.utils.s3_utils import S3Utils
+from strategies.utils.transcribe_utils import TranscribeUtils
 from common.logger import Logger
 
 class S3RemovePii(S3Utils, TranscribeUtils):
