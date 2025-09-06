@@ -61,5 +61,5 @@ class EventSanitizer:
                 ]
             else:
                 sanitized[key] = self._sanitize_value(value)
-        l
+        LOGGER.debug(f"Sanitized event: {sanitized}")
         return sanitized
