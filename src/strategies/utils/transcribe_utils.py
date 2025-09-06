@@ -4,7 +4,7 @@ TranscribeUtils: A comprehensive utility class for AWS Transcribe operations.
 This class provides high-level, descriptive methods for starting, getting, and checking transcription jobs.
 All methods include logging and error handling for robust production use.
 """
-from src.common.client.transcribe_client import TranscribeClient
+from common.client.transcribe_client import TranscribeClient
 
 
 class TranscribeUtils(TranscribeClient):

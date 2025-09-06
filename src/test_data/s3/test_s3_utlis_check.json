@@ -1,0 +1,8 @@
+{
+    "request_type": "s3_utils",
+    "call": "get_object",
+    "input": {
+        "bucket": "example-bucket",
+        "key": "example/key/path.txt"
+    }
+}

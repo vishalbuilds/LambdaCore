@@ -1,0 +1,7 @@
+{
+    "request_type": "StatusChecker",
+    "call": "check_status",
+    "input": {
+        "key": "123abc"
+    }
+}
