@@ -1,6 +1,7 @@
 class StatusChecker:
-    def __init__(self):
-        pass
+    def __init__(self,event):
+        self.event = event
+        
 
     def _check_status(self,event):
         return {

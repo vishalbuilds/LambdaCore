@@ -1,4 +1,7 @@
 from strategies.utils.s3_utils import S3Utils
+from common.logger import Logger
+import os
+LOGGER= Logger(__name__)
 
 class S3GetFile(S3Utils):
     """
@@ -7,7 +10,6 @@ class S3GetFile(S3Utils):
     """
     def __init__(self):
         super().__init__(region_name=os.environ.get('AWS_REGION', 'us-east-1'))
-        self.logger = Logger(__name__)
 
     def handle(self, event, context):
         """
@@ -18,7 +20,7 @@ class S3GetFile(S3Utils):
         Returns:
             dict: Lambda response with status and message.
         """
-        self.logger.info('Lambda handler function for S3GetFile')
+        self.LOGGER.info('Lambda handler function for S3GetFile')
         bucket = event.get("input").get('bucket')
         key = event.get("input").get('key')
         if not bucket or not key:
@@ -26,14 +28,14 @@ class S3GetFile(S3Utils):
         
         try:
             obj = self.get_object(bucket, key)
-            self.logger.info(f"Successfully retrieved object from {bucket}/{key}")
+            self.LOGGER.info(f"Successfully retrieved object from {bucket}/{key}")
             return {
                 'statusCode': 200,
                 'message': 'Successfully retrieved object',
                 'object': obj
             }
         except Exception as e:
-            self.logger.error(f"Error retrieving object: {e}")
+            self.LOGGER.error(f"Error retrieving object: {e}")
             return {
                 'statusCode': 500,
                 'message': f"Error retrieving object: {e}"

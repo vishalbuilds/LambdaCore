@@ -6,13 +6,14 @@ from common.logger import Logger
 LOGGER = Logger(__name__)
 
 def lambda_handler(event, context):
+
     LOGGER.info(f"Lambda handler started with {event}.")
-    # Sanitize incoming event dictionary
+
     sanitizer = EventSanitizer(event)
+
     clean_event = sanitizer.data  # get sanitized dictionary
-    print(clean_event)
     
-    LOGGER.info(f"Received event: {clean_event}")
+    LOGGER.info(f"Sanitized event: {clean_event}"   )
     
     # Use StrategyFactory to choose and run strategy
     strategy = StrategyFactory(clean_event)
